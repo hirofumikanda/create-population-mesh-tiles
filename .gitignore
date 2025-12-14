@@ -1,0 +1,9 @@
+shp/
+tiles_PTN2025_rgb/
+*.tif
+*.dbf
+*.shp
+*.shx
+*.prj
+*.cpg
+*.xml
