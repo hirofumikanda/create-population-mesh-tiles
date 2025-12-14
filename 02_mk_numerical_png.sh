@@ -23,7 +23,8 @@ log "Step 1/4: Rasterizing shapefile to GeoTIFF"
 if ! docker run --rm -u "$(id -u)":"$(id -g)" -v "$PWD":/work -w /work ghcr.io/osgeo/gdal:alpine-normal-latest \
   gdal_rasterize \
     -a PTN_2025 \
-    -tr 0.00625 0.004166666666666667 \
+    -tr 0.003125 0.0020833333333333333 \
+    -tap \
     -a_nodata 0 \
     -ot UInt32 \
     250m_mesh_2024_all.shp 250m_mesh_2024_all_PTN2025.tif; then
