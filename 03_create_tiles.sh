@@ -16,6 +16,12 @@ if [ ! -f "250m_mesh_2024_all_PTN2025_3857_rgb_cog.tif" ]; then
   exit 1
 fi
 
+# 既存のタイルディレクトリがあれば削除
+if [ -d "tiles_PTN2025_rgb" ]; then
+  log "Removing existing tiles directory: tiles_PTN2025_rgb"
+  rm -rf tiles_PTN2025_rgb
+fi
+
 log "Starting tile generation (zoom levels 5-10)"
 
 if ! docker run --rm -u "$(id -u)":"$(id -g)" -v "$PWD":/work -w /work ghcr.io/osgeo/gdal:alpine-normal-latest \
